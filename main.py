@@ -45,23 +45,23 @@ if __name__ == "__main__":
     print("-------------CLI Image Editor-------------\n---------------------------------------------\n---------------------------------------------\n---------------------------------------------\n---------------------------------------------\n")
     while True: 
         files = [f for f in os.listdir('.') if os.path.isfile(f) if f.endswith("jpg") or f.endswith("png") or f.endswith("jpeg")]
-        print("Please select which image to be edited")
+        print("\nPlease select which image to be edited\n")
         for f in range(len(files)):
             print(f"{f}: {files[f]}")
-        i = int(input())
+        i = input()
         try:
-            ima = files[i]
+            ima = files[int(i)]
         except IndexError as e:
             print("Please enter valid file")
             continue
-        except ValueError as e:
+        except Exception as e:
             print("Please enter the index number")
             continue
         im = Image.open(ima)
         
         while True:
 
-            print(f"What do you want to do with your image- {ima}?\n")
+            print(f"\nWhat do you want to do with your image- {ima}?\n")
 
             print("To show the image press 's'\nTo crop the image press 'c'\nTo rotate the image press'r'\nTo greyscale the image press 'g'\nTo go back press 'b'\nTo exit press 'q")
             a = input()
