@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuvos — Pitch Deck</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0f;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        .slide {
+            min-height: 100vh;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .slide-number {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            font-size: 14px;
+            color: rgba(255,255,255,0.3);
+            font-weight: 500;
+        }
+        
+        .overline {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 16px;
+        }
+        
+        h1 {
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+        
+        h2 {
+            font-size: 42px;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        
+        h3 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            color: rgba(255,255,255,0.6);
+            max-width: 600px;
+            line-height: 1.6;
+        }
+        
+        .purple {
+            color: #a78bfa;
+        }
+        
+        .accent-purple {
+            background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Slide 1 - Title */
+        .slide-title {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .slide-title h1 {
+            font-size: 72px;
+            margin-bottom: 16px;
+        }
+        
+        .tagline {
+            font-size: 24px;
+            color: rgba(255,255,255,0.6);
+            font-weight: 400;
+        }
+        
+        /* Slide 2 - $300B */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 40px;
+        }
+        
+        .big-stat {
+            font-size: 96px;
+            font-weight: 800;
+            color: #a78bfa;
+            line-height: 1;
+        }
+        
+        .stat-desc {
+            font-size: 16px;
+            color: rgba(255,255,255,0.7);
+            margin-top: 16px;
+            line-height: 1.5;
+        }
+        
+        .stat-item {
+            margin-bottom: 24px;
+        }
+        
+        .stat-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            margin-top: 4px;
+        }
+        
+        .source {
+            position: absolute;
+            bottom: 30px;
+            left: 80px;
+            font-size: 11px;
+            color: rgba(255,255,255,0.3);
+            max-width: 600px;
+        }
+        
+        /* Slide 3 - Problem */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        .risk-item {
+            margin-bottom: 32px;
+        }
+        
+        .risk-title {
+            font-size: 32px;
+            font-weight: 600;
+            color: #a78bfa;
+        }
+        
+        .risk-label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            margin-top: 4px;
+        }
+        
+        .footer-note {
+            position: absolute;
+            bottom: 30px;
+            left: 80px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.4);
+        }
+        
+        /* Slide 4 - Solution (Merged) */
+        .solution-header {
+            margin-bottom: 48px;
+        }
+        
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+        
+        .pillar {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 28px;
+        }
+        
+        .pillar-label {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #a78bfa;
+            margin-bottom: 12px;
+        }
+        
+        .pillar-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .pillar-desc {
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.5;
+        }
+        
+        .process-flow {
+            display: flex;
+            gap: 8px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+        
+        .process-step {
+            background: rgba(167, 139, 250, 0.1);
+            border: 1px solid rgba(167, 139, 250, 0.2);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .process-step span {
+            color: #a78bfa;
+            margin-right: 6px;
+        }
+        
+        /* Slide 5 - Screens (Adherence & Accountability) */
+        .screens-section h2 {
+            margin-bottom: 8px;
+        }
+        
+        .screens-subtitle {
+            font-size: 18px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 48px;
+        }
+        
+        .screens-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        
+        .screen-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .screen-card.primary {
+            background: rgba(167, 139, 250, 0.08);
+            border-color: rgba(167, 139, 250, 0.3);
+        }
+        
+        .screen-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .screen-name {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .screen-desc {
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+        
+        .screen-role {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #a78bfa;
+        }
+        
+        .built-for {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+        
+        .built-for-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+        }
+        
+        .patient-tag {
+            background: rgba(255,255,255,0.08);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        /* Slide 6 - Competitors */
+        .competitors-section {
+            max-width: 1200px;
+        }
+        
+        .competitors-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin: 40px 0;
+        }
+        
+        .competitor-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 28px;
+        }
+        
+        .competitor-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .competitor-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        .medisafe-logo {
+            background: linear-gradient(135deg, #4ade80, #22c55e);
+            color: white;
+        }
+        
+        .oneview-logo {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+        }
+        
+        .dimer-logo {
+            background: linear-gradient(135deg, #f472b6, #ec4899);
+            color: white;
+        }
+        
+        .competitor-name {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .competitor-desc {
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        .missing-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #f87171;
+            margin-bottom: 8px;
+        }
+        
+        .missing-list {
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.6;
+        }
+        
+        .our-edge {
+            background: linear-gradient(135deg, rgba(167, 139, 250, 0.15), rgba(139, 92, 246, 0.1));
+            border: 1px solid rgba(167, 139, 250, 0.3);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 32px;
+        }
+        
+        .our-edge-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #a78bfa;
+            margin-bottom: 16px;
+        }
+        
+        .edge-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .edge-tag {
+            background: rgba(167, 139, 250, 0.2);
+            border: 1px solid rgba(167, 139, 250, 0.3);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        
+        /* Slide 7 - Team */
+        .team-section h2 {
+            margin-bottom: 48px;
+        }
+        
+        .founder-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 32px;
+        }
+        
+        .founder-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .founder-name {
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        .founder-title {
+            font-size: 14px;
+            color: #a78bfa;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+        
+        .survivor-badges {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .survivor-badge {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .stroke-badge {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: #000;
+        }
+        
+        .bvvl-badge {
+            background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+            color: #fff;
+        }
+        
+        .founder-bio {
+            font-size: 15px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .founder-highlight {
+            background: rgba(167, 139, 250, 0.1);
+            border-left: 3px solid #a78bfa;
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .team-member {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 24px;
+        }
+        
+        .member-name {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .member-role {
+            font-size: 12px;
+            color: #a78bfa;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+        
+        .member-desc {
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.5;
+        }
+        
+        .team-footer {
+            margin-top: 24px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.4);
+        }
+        
+        /* Slide 8 - CTA */
+        .cta-slide {
+            text-align: center;
+            align-items: center;
+        }
+        
+        .cta-slide h2 {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        
+        .cta-subtitle {
+            font-size: 20px;
+            color: #a78bfa;
+            margin-bottom: 12px;
+        }
+        
+        .cta-desc {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 48px;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 48px;
+            justify-content: center;
+        }
+        
+        .contact-item {
+            text-align: left;
+        }
+        
+        .contact-label {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 6px;
+        }
+        
+        .contact-value {
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .contact-value a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        
+        /* Navigation */
+        .nav {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            background: rgba(0,0,0,0.8);
+            padding: 8px 16px;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            z-index: 100;
+        }
+        
+        .nav-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-dot:hover, .nav-dot.active {
+            background: #a78bfa;
+        }
+
+        @media (max-width: 900px) {
+            .slide {
+                padding: 40px 24px;
+            }
+            
+            h1 { font-size: 36px; }
+            h2 { font-size: 28px; }
+            
+            .stats-grid,
+            .problem-grid,
+            .pillars-grid,
+            .screens-grid,
+            .competitors-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .big-stat {
+                font-size: 56px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Slide 1: Title -->
+<section class="slide slide-title" id="slide-1">
+    <h1 class="accent-purple">kuvos</h1>
+    <p class="tagline">Home care execution infrastructure for post-discharge adherence</p>
+    <span class="slide-number">01</span>
+</section>
+
+<!-- Slide 2: The Problem - $300B -->
+<section class="slide" id="slide-2">
+    <p class="overline">What the execution gap costs the payer</p>
+    <div class="stats-grid">
+        <div>
+            <div class="big-stat">$300B</div>
+            <p class="stat-desc">is the upper-bound estimate of what US healthcare spends every year because prescribed plans are not executed at home.</p>
+            <p class="stat-desc" style="margin-top: 12px; font-size: 13px; color: rgba(255,255,255,0.4);">Published range: <strong>$100B–$300B annually</strong>. Hospitals, insurers and risk-bearing groups absorb it as avoidable admissions, readmission penalties and repeat utilisation.</p>
+        </div>
+        <div>
+            <div class="stat-item">
+                <div class="stat-value">~1 in 10</div>
+                <div class="stat-label">US hospitalisations are linked to medication non-adherence.</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">~125,000</div>
+                <div class="stat-label">deaths a year are associated with non-adherence.</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">~2,545</div>
+                <div class="stat-label">hospitals carry a Medicare readmission penalty in FY2026.</div>
+            </div>
+        </div>
+    </div>
+    <p class="source">Sources: Viswanathan et al., Annals of Internal Medicine (2012); CMS Hospital Readmissions Reduction Program, FY2026. Estimates are contested and directional — kuvos does not claim to recover this figure.</p>
+    <span class="slide-number">02</span>
+</section>
+
+<!-- Slide 3: The Gap -->
+<section class="slide" id="slide-3">
+    <p class="overline">The institutional gap is after discharge</p>
+    <div class="problem-grid">
+        <div>
+            <h2>Visibility ends where the home begins.</h2>
+            <p class="subtitle">Hospitals and insurers lose control of the care plan the moment the patient leaves the facility. Standard digital tools assume people can read small screens, remember sequences and operate complex apps — excluding exactly the people who need support most.</p>
+        </div>
+        <div>
+            <div class="risk-item">
+                <div class="risk-title">Silent</div>
+                <div class="risk-label">Non-adherence risk</div>
+            </div>
+            <div class="risk-item">
+                <div class="risk-title">High</div>
+                <div class="risk-label">Readmission penalties</div>
+            </div>
+            <div class="risk-item">
+                <div class="risk-title">Black Box</div>
+                <div class="risk-label">Home execution data</div>
+            </div>
+        </div>
+    </div>
+    <p class="footer-note">The episode ends at discharge. The plan does not.</p>
+    <span class="slide-number">03</span>
+</section>
+
+<!-- Slide 4: Solution (Merged 4 & 5) -->
+<section class="slide" id="slide-4">
+    <div class="solution-header">
+        <p class="overline">Our approach</p>
+        <h2>AI that never acts alone</h2>
+        <p class="subtitle">The agent-layer institutions can deploy — AI never decides alone.</p>
+    </div>
+    
+    <div class="pillars-grid">
+        <div class="pillar">
+            <div class="pillar-label">Objective</div>
+            <div class="pillar-title">Trusted Infrastructure</div>
+            <div class="pillar-desc">The agent-layer institutions can deploy — AI never decides alone.</div>
+        </div>
+        <div class="pillar">
+            <div class="pillar-label">Path</div>
+            <div class="pillar-title">Human in the Loop</div>
+            <div class="pillar-desc">Rock-box home adherence becomes a source-verified, authorised protocol.</div>
+        </div>
+        <div class="pillar">
+            <div class="pillar-label">Payoff</div>
+            <div class="pillar-title">Measurable ROI</div>
+            <div class="pillar-desc">Readmission and liability exposure first; governed evidence second.</div>
+        </div>
+    </div>
+    
+    <p class="overline" style="margin-top: 24px;">How a plan becomes executable</p>
+    <div class="process-flow">
+        <div class="process-step"><span>01</span> Ingest</div>
+        <div class="process-step"><span>02</span> Extract</div>
+        <div class="process-step"><span>03</span> Consensus</div>
+        <div class="process-step"><span>04</span> Lock</div>
+        <div class="process-step"><span>05</span> Authorise</div>
+        <div class="process-step"><span>06</span> Execute</div>
+        <div class="process-step"><span>07</span> Escalate</div>
+    </div>
+    <p style="font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 16px;">Steps 03–04 are the liability boundary: model agreement is not clinical approval — nothing reaches the patient without a named human signature.</p>
+    
+    <p class="footer-note">kuvos is an execution layer, not a diagnostic system.</p>
+    <span class="slide-number">04</span>
+</section>
+
+<!-- Slide 5: Meet People Where They Are (Adherence & Accountability) -->
+<section class="slide screens-section" id="slide-5">
+    <h2>Meet people where they are</h2>
+    <p class="screens-subtitle">Adherence & Accountability — across every screen a household already owns.</p>
+    
+    <div class="screens-grid">
+        <div class="screen-card primary">
+            <div class="screen-icon">📱</div>
+            <div class="screen-name">Smartphone</div>
+            <div class="screen-desc">Personal surface for setup, review and detailed confirmation. Full control for caregivers and patients.</div>
+            <div class="screen-role">Primary</div>
+        </div>
+        <div class="screen-card">
+            <div class="screen-icon">📺</div>
+            <div class="screen-name">Smart TV</div>
+            <div class="screen-desc">Ambient surface for high-visibility household cues and guidance. Large text, voice control, shared viewing.</div>
+            <div class="screen-role">Secondary</div>
+        </div>
+        <div class="screen-card">
+            <div class="screen-icon">⌚</div>
+            <div class="screen-name">Smartwatch</div>
+            <div class="screen-desc">Companion surface for discreet haptics and quick acknowledgement. Always-on gentle reminders.</div>
+            <div class="screen-role">Companion</div>
+        </div>
+    </div>
+    
+    <div class="built-for">
+        <span class="built-for-label">Built for</span>
+        <span class="patient-tag">Cognitive</span>
+        <span class="patient-tag">Motor</span>
+        <span class="patient-tag">Sensory</span>
+        <span class="patient-tag">Geriatric</span>
+        <span class="patient-tag">Cancer</span>
+        <span class="patient-tag">Operational Incapacity</span>
+    </div>
+    
+    <p class="footer-note">No new hardware for the core experience.</p>
+    <span class="slide-number">05</span>
+</section>
+
+<!-- Slide 6: Competitors -->
+<section class="slide competitors-section" id="slide-6">
+    <p class="overline">Competitive Landscape</p>
+    <h2>Where the incumbents stop</h2>
+    
+    <div class="competitors-grid">
+        <div class="competitor-card">
+            <div class="competitor-header">
+                <div class="competitor-logo medisafe-logo">M</div>
+                <div class="competitor-name">Medisafe</div>
+            </div>
+            <div class="competitor-desc">Closest competitor. Medication reminders plus appointment & schedule management.</div>
+            <div class="missing-label">What's Missing</div>
+            <div class="missing-list">
+                • No conversational AI assistant<br>
+                • No human-authorisation protocol<br>
+                • No TV or watch surface<br>
+                • Phone-only experience
+            </div>
+        </div>
+        
+        <div class="competitor-card">
+            <div class="competitor-header">
+                <div class="competitor-logo oneview-logo">O</div>
+                <div class="competitor-name">OneView</div>
+            </div>
+            <div class="competitor-desc">OPD care management automation, built around an interactive TV screen as the primary surface.</div>
+            <div class="missing-label">What's Missing</div>
+            <div class="missing-list">
+                • TV-only, excludes anyone without a shared screen<br>
+                • No phone primary path<br>
+                • No AI chat<br>
+                • No execution protocol
+            </div>
+        </div>
+        
+        <div class="competitor-card">
+            <div class="competitor-header">
+                <div class="competitor-logo dimer-logo">D</div>
+                <div class="competitor-name">Dimer Health</div>
+            </div>
+            <div class="competitor-desc">Primarily a video-call-with-doctor feature for remote consultations.</div>
+            <div class="missing-label">What's Missing</div>
+            <div class="missing-list">
+                • No adherence execution between visits<br>
+                • No multi-surface cues<br>
+                • No AI ingestion of the care plan<br>
+                • Single touchpoint model
+            </div>
+        </div>
+    </div>
+    
+    <div class="our-edge">
+        <div class="our-edge-label">Our Edge</div>
+        <div class="edge-tags">
+            <span class="edge-tag">AI Chat Assistant</span>
+            <span class="edge-tag">Scheduling Utility</span>
+            <span class="edge-tag">Smart Cross-Screen</span>
+            <span class="edge-tag">Doc-in-the-Loop</span>
+            <span class="edge-tag">Locked Drafts</span>
+            <span class="edge-tag">Human-in-the-Loop</span>
+        </div>
+    </div>
+    
+    <p class="footer-note">Adjacent tools solve one piece of the journey; kuvos closes the loop.</p>
+    <span class="slide-number">06</span>
+</section>
+
+<!-- Slide 7: Team -->
+<section class="slide team-section" id="slide-7">
+    <h2>Clinical lived experience meets AI and institutional scale</h2>
+    
+    <div class="founder-card">
+        <div class="founder-header">
+            <div>
+                <div class="founder-name">Vipashana Telgote</div>
+                <div class="founder-title">CEO & Founder</div>
+            </div>
+            <div class="survivor-badges">
+                <span class="survivor-badge stroke-badge">⚡ STROKE SURVIVOR</span>
+                <span class="survivor-badge bvvl-badge">🧬 BVVL SURVIVOR</span>
+            </div>
+        </div>
+        <p class="founder-bio">Ten years of clinical physiotherapy and five years building on Solana. Launched Go Cabs, a Solana e-hailing service.</p>
+        <div class="founder-highlight">
+            <strong>From clinician to patient</strong> — she has now lived care from both sides of the bed. BVVL is a rare, progressive neurological condition, with fewer than 100 documented cases worldwide, and it's exactly the kind of edge-case incapacity most digital health products are never designed for.
+        </div>
+    </div>
+    
+    <div class="team-grid">
+        <div class="team-member">
+            <div class="member-name">Chinmoy Kalita</div>
+            <div class="member-role">CTO</div>
+            <div class="member-desc">Full-stack and applied AI engineer. Has shipped wellness applications and production-grade autonomous AI calling agents.</div>
+        </div>
+        <div class="team-member">
+            <div class="member-name">Ronit Kumar</div>
+            <div class="member-role">AI/ML Specialist</div>
+            <div class="member-desc">[Education — confirm] Full-stack and generative AI engineer with healthcare product execution experience.</div>
+        </div>
+        <div class="team-member">
+            <div class="member-name">Shrikant Bhalerao</div>
+            <div class="member-role">Advisor</div>
+            <div class="member-desc">Institutional scaling veteran. Founder of Kleomoney, acquired by Ang Finance. CEO of Credible Finance, $4M raised.</div>
+        </div>
+    </div>
+    
+    <p class="team-footer">Clinical understanding · lived accessibility · product discipline</p>
+    <span class="slide-number">07</span>
+</section>
+
+<!-- Slide 8: CTA -->
+<section class="slide cta-slide" id="slide-8">
+    <h2>The next proof point is external.</h2>
+    <p class="cta-subtitle">Seeking design partners and pilot pathways.</p>
+    <p class="cta-desc">One cohort, one operational owner, one measurable workflow outcome, one renewal decision.</p>
+    
+    <div class="contact-info">
+        <div class="contact-item">
+            <div class="contact-label">Website</div>
+            <div class="contact-value"><a href="https://kuvos.care">kuvos.care</a></div>
+        </div>
+        <div class="contact-item">
+            <div class="contact-label">Contact</div>
+            <div class="contact-value"><a href="mailto:vipashana@kuvos.care">vipashana@kuvos.care</a></div>
+        </div>
+    </div>
+    <span class="slide-number">08</span>
+</section>
+
+<script>
+    // Simple navigation
+    const slides = document.querySelectorAll('.slide');
+    const nav = document.createElement('div');
+    nav.className = 'nav';
+    
+    slides.forEach((slide, i) => {
+        const dot = document.createElement('div');
+        dot.className = 'nav-dot';
+        dot.addEventListener('click', () => {
+            slide.scrollIntoView({ behavior: 'smooth' });
+        });
+        nav.appendChild(dot);
+    });
+    
+    document.body.appendChild(nav);
+    
+    // Update active dot on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const index = Array.from(slides).indexOf(entry.target);
+                document.querySelectorAll('.nav-dot').forEach((dot, i) => {
+                    dot.classList.toggle('active', i === index);
+                });
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    slides.forEach(slide => observer.observe(slide));
+</script>
+
+</body>
+</html>
