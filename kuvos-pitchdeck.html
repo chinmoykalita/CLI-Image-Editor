@@ -88,14 +88,94 @@
         
         /* Slide 1 - Title */
         .slide-title {
-            text-align: center;
             justify-content: center;
             align-items: center;
         }
         
+        .title-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1100px;
+        }
+        
+        .title-left {
+            flex: 1;
+        }
+        
         .slide-title h1 {
-            font-size: 72px;
+            font-size: 64px;
             margin-bottom: 16px;
+            font-weight: 700;
+        }
+        
+        .title-tagline {
+            font-size: 22px;
+            color: #a78bfa;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+        
+        .title-desc {
+            font-size: 16px;
+            color: rgba(255,255,255,0.6);
+            max-width: 400px;
+            line-height: 1.5;
+        }
+        
+        .title-footer {
+            font-size: 12px;
+            color: rgba(255,255,255,0.3);
+            margin-top: 40px;
+        }
+        
+        .title-right {
+            flex-shrink: 0;
+            margin-left: 60px;
+        }
+        
+        .circle-graphic {
+            position: relative;
+            width: 280px;
+            height: 280px;
+        }
+        
+        .circle-outer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid rgba(255,255,255,0.15);
+            border-radius: 50%;
+            border-top-color: rgba(167, 139, 250, 0.6);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .circle-inner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: right;
+            padding-right: 20px;
+        }
+        
+        .circle-brand {
+            display: block;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .circle-sub {
+            font-size: 11px;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.4;
         }
         
         .tagline {
@@ -640,6 +720,35 @@
             h1 { font-size: 36px; }
             h2 { font-size: 28px; }
             
+            .title-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .title-left {
+                order: 2;
+            }
+            
+            .title-right {
+                order: 1;
+                margin-left: 0;
+                margin-bottom: 40px;
+            }
+            
+            .title-desc {
+                max-width: 100%;
+            }
+            
+            .circle-graphic {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .circle-inner {
+                text-align: center;
+                padding-right: 0;
+            }
+            
             .stats-grid,
             .problem-grid,
             .pillars-grid,
@@ -659,8 +768,23 @@
 
 <!-- Slide 1: Title -->
 <section class="slide slide-title" id="slide-1">
-    <h1 class="accent-purple">kuvos</h1>
-    <p class="tagline">Home care execution infrastructure for post-discharge adherence</p>
+    <div class="title-content">
+        <div class="title-left">
+            <h1>kuvos</h1>
+            <p class="title-tagline">Trusted AI Agent Infrastructure for Care Continuity</p>
+            <p class="title-desc">One authorised care plan, made executable for anyone facing incapacity.</p>
+            <p class="title-footer">Pitch Deck 2026 · kuvos.care</p>
+        </div>
+        <div class="title-right">
+            <div class="circle-graphic">
+                <div class="circle-outer"></div>
+                <div class="circle-inner">
+                    <span class="circle-brand">kuvos</span>
+                    <span class="circle-sub">intelligent adherence<br>protocols</span>
+                </div>
+            </div>
+        </div>
+    </div>
     <span class="slide-number">01</span>
 </section>
 
