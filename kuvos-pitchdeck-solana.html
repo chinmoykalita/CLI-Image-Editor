@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kuvos — Pitch Deck</title>
+    <title>Kuvos — Pitch Deck (Solana Mobile)</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         
@@ -409,6 +409,36 @@
             border-radius: 20px;
             font-size: 12px;
             font-weight: 500;
+        }
+        
+        .solana-callout {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-top: 32px;
+            padding: 24px;
+            background: linear-gradient(135deg, rgba(20, 241, 149, 0.08), rgba(153, 69, 255, 0.08));
+            border: 1px solid rgba(20, 241, 149, 0.2);
+            border-radius: 12px;
+        }
+        
+        .solana-icon {
+            font-size: 28px;
+            color: #14f195;
+            flex-shrink: 0;
+        }
+        
+        .solana-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #14f195;
+            margin-bottom: 6px;
+        }
+        
+        .solana-desc {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.5;
         }
         
         /* Slide 6 - Competitors */
@@ -919,6 +949,14 @@
         <span class="patient-tag">Geriatric</span>
         <span class="patient-tag">Cancer</span>
         <span class="patient-tag">Operational Incapacity</span>
+    </div>
+    
+    <div class="solana-callout">
+        <div class="solana-icon">◎</div>
+        <div class="solana-content">
+            <div class="solana-title">Building on Solana Mobile</div>
+            <div class="solana-desc">For expats who travel frequently or live abroad with aging parents at home — real-time care coordination across borders, trustless verification, instant notifications.</div>
+        </div>
     </div>
     
     <p class="footer-note">No new hardware for the core experience.</p>
